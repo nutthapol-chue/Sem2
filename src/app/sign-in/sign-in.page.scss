@@ -1,0 +1,27 @@
+
+.btn-back{
+    --background: url('/assets/icon/icon-back.png') no-repeat center/cover;
+    width: 50px;
+    height: 50px;
+    --border-radius: 50px;
+}
+.btn-fb{
+    --background:#7583CA;
+    height: 45px;
+    --border-radius: 50px;
+}
+.btn-gg{
+    --background:#FFF;
+    height: 45px;
+    --border-radius: 50px;
+}
+.input-sign-up-in{
+    font-size: small;
+    height: 45px;
+    --background:#F2F3F7;
+}
+.btn-sign-up-in{
+    --background:#65d1ca;
+    height: 45px;
+    --border-radius: 50px;
+}

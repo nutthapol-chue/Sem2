@@ -1,25 +1,25 @@
 ion-content {
-
-  --background: url("../../assets/image/system/bg-sign-up-in.png") no-repeat center/cover;
+  --background: url("/assets/image/system/bg-welcome.png") no-repeat left/cover;
 }
 .logo {
   width: 280px;
   height: 148px;
   margin: auto;
   margin-top: 8rem;
-} 
-
+}
 ion-item {
   --background: none;
 }
 
-.btn-sign-up {
-  --background: #65d1ca;
+.btn-start {
+  --background: #ebeaec;
   --border-radius: 50px;
   height: 45px;
+
+  --color: #3f414e;
 }
 
-.sign-up-in{
+.sign-up-in {
   margin-top: 75%;
   padding-left: 2rem;
   padding-right: 2rem;
