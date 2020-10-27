@@ -10,7 +10,8 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
-  },  {
+  },
+  {
     path: 'sign-in',
     loadChildren: () => import('./sign-in/sign-in.module').then( m => m.SignInPageModule)
   },
@@ -22,7 +23,10 @@ const routes: Routes = [
     path: 'welcome',
     loadChildren: () => import('./welcome/welcome.module').then( m => m.WelcomePageModule)
   },
-
+  {
+    path: 'appnote',
+    loadChildren: () => import('./appnote/appnote.module').then( m => m.AppnotePageModule)
+  },
 ];
 
 @NgModule({

@@ -1,0 +1,91 @@
+<ion-content [fullscreen]="true">
+
+  <!-- Pull down to refresh -->
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" refreshingSpiner="circles" refreshingText="Refreshing"></ion-refresher-content>
+  </ion-refresher>
+  <!-- Pull down to refresh -->
+
+  <!-- Head -->
+  <div style="text-align: center;">
+    <h1> App Note</h1>
+    <br>
+    <ion-text> Today {{myDate | date : 'dd/MM/yy'}} </ion-text>
+  </div>
+  <!-- Head -->
+
+  <!-- Item Slide notes list -->
+  <ion-item-sliding *ngFor=" let item of notes" style="width: 100%;">
+
+    <!-- Slide right to show edit-->
+    <ion-item-options side="start" (click)="checkIn(item.detail)">
+      <ion-item-option color="warning" expandable >
+        Edit
+      </ion-item-option>
+    </ion-item-options>
+    <!-- Slide right to show edit-->
+
+    <!-- Imformation -->
+    <ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-col style="font-weight: bolder;font-size: larger;">
+            {{ item.topic}}
+          </ion-col>
+          <ion-col>
+            {{ item.datestart | date : 'dd/MM/yy '}} - {{ item.dateend | date : 'dd/MM/yy '}}
+          </ion-col>
+        </ion-row>
+        <ion-row style="border-bottom-style:solid;border-bottom-width:1px;border-bottom-color:black;">
+          <ion-col> {{item.detail }}</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+    <!-- Imformation -->
+
+    <!-- Slide left to show delete-->
+    <ion-item-options side="end"  (click)="delNote(item.detail)">
+      <ion-item-option color="danger" expandable>
+        Delete
+      </ion-item-option>
+    </ion-item-options>
+    <!-- Slide left to show delete-->
+
+  </ion-item-sliding>
+  <!-- Item Slide notes list -->
+
+
+
+
+<!-- Form Add and Edit-->
+  <form>
+    <div class="formAdd">
+      <ion-item>
+        <ion-label> Topic: </ion-label>
+        <ion-input type="text" name="topic" [(ngModel)]="topic" value="{{topic}}"> </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label> Detail: </ion-label>
+        <ion-input type="text" name="detail" [(ngModel)]="detail" value="{{detail}}"> </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label> Date start: </ion-label>
+        <ion-datetime type="text" name="datestart" [(ngModel)]="datestart" displayFormat="DD/MM/YYYY"
+          value="{{datestart}}"> </ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label> Date end: </ion-label>
+        <ion-datetime type="text" name="dateend" [(ngModel)]="dateend" displayFormat="DD/MM/YYYY" value="{{dateend}}">
+        </ion-datetime>
+      </ion-item>
+    </div>
+
+    <div>
+      <ion-button (click)="addNote()" expand="full">ADD </ion-button>
+      <ion-button (click)="updateNote()" color="warning" expand="full" *ngIf="isUpdate">Update</ion-button>
+      <ion-button (click)="clearStorage()" color="danger" expand="full">Clear Storage</ion-button>
+    </div>
+  </form>
+<!-- Form Add and Edit-->
+
+</ion-content>
