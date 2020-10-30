@@ -11,10 +11,10 @@ import { AppRoutingModule } from './app-routing.module';
 
 
 import { AngularFireModule } from '@angular/fire';
-
 import { AngularFireAuth } from '@angular/fire/auth';
-
 import { AngularFireDatabase } from '@angular/fire/database';
+
+import { IonicStorageModule } from '@ionic/storage';
 
 var firebaseConfig = {
   apiKey: "AIzaSyDRvLQXUuhT9sUuwVVJwDFu7BIjhYUVfVE",
@@ -30,7 +30,13 @@ var firebaseConfig = {
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, AngularFireModule.initializeApp(firebaseConfig)],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    IonicStorageModule.forRoot()
+  ],
   providers: [
     StatusBar,
     SplashScreen,

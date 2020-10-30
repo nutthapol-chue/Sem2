@@ -27,6 +27,10 @@ const routes: Routes = [
     path: 'appnote',
     loadChildren: () => import('./appnote/appnote.module').then( m => m.AppnotePageModule)
   },
+  {
+    path: 'detail',
+    loadChildren: () => import('./detail/detail.module').then( m => m.DetailPageModule)
+  },
 ];
 
 @NgModule({
