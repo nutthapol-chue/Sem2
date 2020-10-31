@@ -42,6 +42,7 @@ var firebaseConfig = {
     SplashScreen,
     AngularFireAuth,
     AngularFireDatabase,
+    Storage,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

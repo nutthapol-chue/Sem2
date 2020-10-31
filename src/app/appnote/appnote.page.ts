@@ -25,9 +25,6 @@ export class AppnotePage {
 
   constructor(private storage: Storage) {
     this.getStorage();
-
-
-
   }
   addNote() {
     this.notes = this.notes || [];
@@ -38,40 +35,45 @@ export class AppnotePage {
         topic: this.topic,
         detail: this.detail
       });
-    console.log(this.notes)
-
+    this.clearText();
     this.setStorage();
   }
   updateNote() {
+    this.isUpdate = false;
     this.notes[this.ind].datestart = this.datestart;
     this.notes[this.ind].dateend = this.dateend;
     this.notes[this.ind].topic = this.topic;
     this.notes[this.ind].detail = this.detail;
     this.setStorage();
+    this.clearText();
   }
   delNote(detail: any) {
-    console.log(this.detail)
+    // console.log(this.detail);
     this.ind = this.notes.findIndex(
       obj => obj.detail == detail);
-    console.log(this.ind);
     this.notes.splice(this.ind, 1);
-
+    this.setStorage();
   }
   checkIn(detail: any) {
     this.isUpdate = true;
     this.ind = this.notes.findIndex(
       obj => obj.detail == detail);
-    console.log(this.ind);
+    // console.log(this.ind);
     this.datestart = this.notes[this.ind].datestart;
     this.dateend = this.notes[this.ind].dateend;
     this.topic = this.notes[this.ind].topic;
     this.detail = this.notes[this.ind].detail;
+
   }
   clearText() {
-
+    this.topic = "";
+    this.datestart = "";
+    this.dateend = "";
+    this.detail = "";
   }
   clearStorage() {
     this.storage.clear('notes');
+    this.clearText();
     this.getStorage();
 
   }
@@ -95,7 +97,7 @@ export class AppnotePage {
     this.storage.ready().then(() => {
       this.storage.get("notes").then((val) => {
         this.notes = val;
-        console.log(this.notes);
+        // console.log(this.notes);
       });
     });
   }
