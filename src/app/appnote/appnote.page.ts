@@ -72,7 +72,7 @@ export class AppnotePage {
     this.detail = "";
   }
   clearStorage() {
-    this.storage.clear('notes');
+    this.storage.remove("notes");
     this.clearText();
     this.getStorage();
 
